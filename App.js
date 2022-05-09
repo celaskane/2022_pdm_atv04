@@ -3,10 +3,32 @@ import { Button, FlatList, StyleSheet, Text, TextInput, View } from 'react-nativ
 import { PROTOCOL, BASE_URL, LANGUAGE, UNITS, APPID } from '@env'
 
 export default function App() {
+
+  const [cidade, setCidade] = useState('')
+  const[previsoes, setPrevisoes] = useState([])
+  const capturarCidade = (cidadeDigitada) => {
+    setCidade(cidadeDigitada)
+  }
+  const obterPrevisoes = () => {
+    const endPoint = `${PROTOCOL}://${BASE_URL}?lang=${LANGUAGE}&units=${UNITS}&appid=${APPID}&q=${cidade}`
+    fetch(endPoint)
+    .then(response => {
+      return response.json()
+    })
+    .then(dados => {
+      setPrevisoes(dados['list'])
+    })
+  }
+
   return (
-    <View>
-      <View>
-        <TextInput/>
+    <View style={styles.containerView}>
+      <View style={styles.entradaView}>
+        <TextInput
+          style={styles.cidadeTextInput}
+          placeholder="Digite o nome da cidade desejada."
+          value={cidade}
+          onChangeText={capturarCidade}
+        />
         <Button/>
       </View>
       <FlatList/>
