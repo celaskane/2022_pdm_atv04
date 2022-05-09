@@ -29,9 +29,17 @@ export default function App() {
           value={cidade}
           onChangeText={capturarCidade}
         />
-        <Button/>
+        <Button
+          title='OK'
+          onPress={obterPrevisoes}
+        />
       </View>
-      <FlatList/>
+      <FlatList
+        data={previsoes}
+        renderItem={p => (
+          <Text>{JSON.stringify(p)}</Text>
+        )}
+      />
     </View>
   );
 }
