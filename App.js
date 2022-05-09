@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button, FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
+import { PROTOCOL, BASE_URL, LANGUAGE, UNITS, APPID } from '@env'
 
 export default function App() {
   return (
