@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Button, FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View>
+      <View>
+        <TextInput/>
+        <Button/>
+      </View>
+      <FlatList/>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  containerView: {
+    padding: 40,
   },
-});
+  entradaView: {
+    marginBottom: 8
+  },
+  cidadeTextInput: {
+    padding: 12,
+    borderBottomColor: '#FF9800',
+    borderWidth: 2,
+    marginBottom: 4
+  }
+})
